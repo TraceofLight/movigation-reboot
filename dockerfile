@@ -2,10 +2,8 @@ FROM node:16
 
 WORKDIR /app
 
-CMD ["cd", "frontend"]
-
-COPY package.json .
+COPY ./frontend/package.json .
 RUN npm install
-COPY . .
+COPY ./frontend .
 
 CMD ["npm", "run", "dev"]
