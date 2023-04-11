@@ -2,8 +2,8 @@ FROM node:16
 
 WORKDIR /app
 
-COPY ./frontend/package.json .
+COPY ./frontend/movigation/package.json .
 RUN npm install
-COPY ./frontend .
+COPY ./frontend/movigation .
 
 CMD ["npm", "run", "dev"]
