@@ -1,5 +1,4 @@
 FROM openjdk:11.0.16-jre-slim-buster
-CMD pwd
-ARG JAR_FILE_PATH=build/libs/*.jar
+ARG JAR_FILE_PATH=/var/jenkins_home/workspace/'Movigation BE'/backend/build/libs/*.jar
 COPY ${JAR_FILE_PATH} app.jar
 CMD java -jar ${JAR_FILE_PATH}/app.jar
