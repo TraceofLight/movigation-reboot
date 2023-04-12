@@ -1,3 +1,5 @@
 FROM openjdk:11.0.16-jre-slim-buster
-COPY build/libs/movigation-0.0.1-SNAPSHOT.jar app.jar
-CMD java -jar app.jar
+CMD pwd
+ARG JAR_FILE_PATH=build/libs/*.jar
+COPY ${JAR_FILE_PATH} app.jar
+CMD java -jar ${JAR_FILE_PATH}/app.jar
