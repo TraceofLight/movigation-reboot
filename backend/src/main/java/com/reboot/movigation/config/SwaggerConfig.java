@@ -1,33 +1,34 @@
 package com.reboot.movigation.config;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.Info;
-import lombok.RequiredArgsConstructor;
-import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-@OpenAPIDefinition(
-        info = @Info(
-                title = "Movigation RESTful API",
-                description = "영화 추천 플랫폼 Movigation의 명세서",
-                version = "1.0.0"
-        )
-)
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-@RequiredArgsConstructor
 public class SwaggerConfig {
-    // url: movigation.app
 
     @Bean
-    public GroupedOpenApi UserApi() {
-        String[] paths = {"/api/v1/movigation/user/**"};
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build()
+                .apiInfo(apiInfo());
+    }
 
-        return GroupedOpenApi
-                .builder()
-                .group("User API")
-                .pathsToMatch(paths)
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("Movigation Swagger")
+                .description("Movigation 페이지의 Rest API 내용을 담은 문서")
+                .version("V0.1")
+                .contact(new Contact("TraceofLight", "https://www.movigation.app/", "rickyjun45@gmail.com"))
                 .build();
     }
 
