@@ -1,0 +1,9 @@
+FROM node:16
+
+WORKDIR /app
+
+COPY ./frontend/movigation/package.json .
+RUN npm install
+COPY ./frontend/movigation .
+
+CMD ["npm", "run", "dev"]
