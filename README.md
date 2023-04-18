@@ -33,3 +33,8 @@
 - 기존 Sqlite를 기반으로 작업한 DB를 MySQL Workbench의 Reverse Engineering 기능을 활용하여 재작성
 - ForeignKey 이슈 발생 &rarr; 기존 프로젝트 진행하면서 ERD를 깔끔하게 작성하지 않은 것이 이유로 보임
 
+### 2023-04-18
+
+- DB 재구축 성공
+- 기능 명세 및 API 명세 재구축 시작
+- Figma를 통한 UI/UX 개선 시작
