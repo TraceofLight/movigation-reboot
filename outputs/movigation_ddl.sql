@@ -17,8 +17,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema movigation_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `movigation_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `movigation_db` ;
+CREATE SCHEMA IF NOT EXISTS `movigation_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `movigation_db`;
 
 -- -----------------------------------------------------
 -- Table `movigation_db`.`movies`
@@ -30,9 +30,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`movies` (
   `vote_average` FLOAT NULL DEFAULT NULL,
   `overview` VARCHAR(500) NULL DEFAULT NULL,
   PRIMARY KEY (`tmdb_movie_id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -46,9 +44,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`users` (
   `profile_image` VARCHAR(100) NULL DEFAULT NULL,
   `phone_number` VARCHAR(11) NULL DEFAULT NULL,
   PRIMARY KEY (`user_index`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -69,9 +65,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`dislike_movies` (
     REFERENCES `movigation_db`.`users` (`user_index`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -92,9 +86,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`like_movies` (
     REFERENCES `movigation_db`.`users` (`user_index`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -116,9 +108,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`like_genres` (
     REFERENCES `movigation_db`.`users` (`user_index`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -144,9 +134,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`movies_genres` (
     REFERENCES `movigation_db`.`like_genres` (`genre_number`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -172,9 +160,7 @@ CREATE TABLE IF NOT EXISTS `movigation_db`.`reviews` (
     REFERENCES `movigation_db`.`users` (`user_index`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
