@@ -27,6 +27,9 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    // H2
+    compileOnly 'com.h2database:h2'
+
     // JDBC
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.0.8'
 
